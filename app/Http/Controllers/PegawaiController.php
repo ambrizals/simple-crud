@@ -10,6 +10,10 @@ use App\Pegawai;
 use Illuminate\Support\Facades\Request;
 class PegawaiController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(){
         $pegawai = Pegawai::latest('created_at')->get();
         return view('pegawai.index',compact('pegawai'));

@@ -7,6 +7,11 @@
         @if (Session::has('message'))
         <div class="alert alert-info">{{ Session::get('message') }}</div>
         @endif
+        <div class="row">
+            <div class="col-md-4">
+                <a href="{{ URL('pegawai/create') }}" class="btn btn-info">Tambah Pegawai</a>
+            </div>
+        </div>
         <table class="table table-striped table-bordered">
             <thead>
                 <tr>

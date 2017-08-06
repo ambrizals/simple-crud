@@ -8,6 +8,7 @@
 
                 <div class="panel-body">
                     You are logged in!
+                    <a href="{{ URL('pegawai') }}">Pegawai</a> <a href="{{ URL('mahasiswa') }}">Mahasiswa</a>
                 </div>
             </div>
         </div>
