@@ -19,6 +19,7 @@ class CreateMahasiswaTable extends Migration
             $table->string('jurusan',255);
             $table->string('alamat', 255);
             $table->string('telepon',14);
+			$table->integer('flag_delete')->default(0);
             $table->timestamps();
             $table->primary('nim');
         });

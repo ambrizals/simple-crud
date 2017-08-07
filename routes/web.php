@@ -16,8 +16,8 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::resource('/pegawai', 'PegawaiController');
-Route::get('/pegawai', 'PegawaiController@index');
+//Route::get('/pegawai', 'PegawaiController@index');
 Route::resource('/mahasiswa', 'MahasiswaController');
+Route::get('mahasiswa/terhapus', 'MahasiswaController@terhapus');
 //Route::get('/mahasiswa', 'MahasiswaController@index');
-
 Route::get('/', 'HomeController@index')->name('home');

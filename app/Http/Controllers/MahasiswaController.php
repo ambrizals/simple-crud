@@ -15,7 +15,7 @@ class MahasiswaController extends Controller
         $this->middleware('auth');
     }
     public function index(){
-        $Mahasiswa = Mahasiswa::latest('created_at')->get();
+        $Mahasiswa = Mahasiswa::latest('created_at')->where(['flag_delete' => 0])->get();
         return view ('mahasiswa.index', compact('Mahasiswa'));
     }
     public function create(){
@@ -39,7 +39,12 @@ class MahasiswaController extends Controller
         return redirect('mahasiswa')->with('message', 'Data berhasil diubah!');
     }
     public function destroy($nim){
-        Mahasiswa::find($nim)->delete();
+		$Mahasiswa = Mahasiswa::find($nim);
+		$Mahasiswa->update(['flag_delete', 1]);
         return redirect('mahasiswa')->with('message', 'Data berhasil dihapus!');
     }
+	public function terhapus(){
+        $Mahasiswa = Mahasiswa::latest('created_at')->where(['flag_delete' => 1])->get();
+        return view ('mahasiswa.index', compact('Mahasiswa'));
+	}
 }

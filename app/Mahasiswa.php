@@ -8,5 +8,5 @@ class Mahasiswa extends Model
 {
     protected $primaryKey = 'nim';
     protected $table = 'mahasiswa';
-    protected $fillable = ['nim','nama','jurusan','alamat','telepon'];
+    protected $fillable = ['nim','nama','jurusan','alamat','telepon','flag_delete'];
 }
