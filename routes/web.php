@@ -16,8 +16,10 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::resource('/pegawai', 'PegawaiController');
-//Route::get('/pegawai', 'PegawaiController@index');
-Route::resource('/mahasiswa', 'MahasiswaController');
-Route::get('mahasiswa/terhapus', 'MahasiswaController@terhapus');
+Route::prefix('mahasiswa')->group(function () {
+	Route::get('terhapus', 'MahasiswaController@terhapus')->name('Daftar Arsip');
+	Route::delete('{nim}/restore', 'MahasiswaController@restore')->name('Restore Data');
+});
+Route::resource('mahasiswa', 'MahasiswaController');
 //Route::get('/mahasiswa', 'MahasiswaController@index');
 Route::get('/', 'HomeController@index')->name('home');

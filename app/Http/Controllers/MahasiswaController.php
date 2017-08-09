@@ -39,12 +39,15 @@ class MahasiswaController extends Controller
         return redirect('mahasiswa')->with('message', 'Data berhasil diubah!');
     }
     public function destroy($nim){
-		$Mahasiswa = Mahasiswa::find($nim);
-		$Mahasiswa->update(['flag_delete', 1]);
+		Mahasiswa::where('nim',$nim)->update(['flag_delete' => 1]);
         return redirect('mahasiswa')->with('message', 'Data berhasil dihapus!');
     }
+	public function restore($nim) {
+		Mahasiswa::where('nim',$nim)->update(['flag_delete' => 0]);
+        return redirect('mahasiswa')->with('message', 'Data berhasil dihapus!');
+	}
 	public function terhapus(){
         $Mahasiswa = Mahasiswa::latest('created_at')->where(['flag_delete' => 1])->get();
-        return view ('mahasiswa.index', compact('Mahasiswa'));
+        return view ('mahasiswa.terhapus', compact('Mahasiswa'));
 	}
 }
