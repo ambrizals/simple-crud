@@ -3,6 +3,7 @@
 <div class="row">
     <div class="col-lg-12">
         <h1>Arsip Mahasiswa</h1>
+        <br/>
         <table class="table table-striped table-bordered">
             <thead>
                 <tr>
@@ -25,7 +26,7 @@
                     <td>
                         {!! Form::open(['url' => 'mahasiswa/' . $value->nim . '/restore', 'class' => 'pull-left']) !!}
                         {!! Form::hidden('_method', 'DELETE') !!}
-                        {!! Form::submit('Hapus Data', ['class' => 'btn btn-danger']) !!}
+                        {!! Form::submit('Kembalikan Data', ['class' => 'btn btn-danger']) !!}
                         {!! Form::close() !!}
                     </td>         
                 </tr>

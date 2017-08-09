@@ -3,11 +3,16 @@
 <div class="row">
     <div class="col-lg-12">
         <h1>Daftar Mahasiswa</h1>
+        @if (Session::has('message'))
+        <div class="alert alert-info">{{ Session::get('message') }}</div>
+        <br/>
+        @endif
         <div class="row">
             <div class="col-md-4">
                 <a href="{{ URL('mahasiswa/create') }}" class="btn btn-primary">Tambah Mahasiswa</a>
             </div>
         </div>
+        <br/>
         <table class="table table-striped table-bordered">
             <thead>
                 <tr>
@@ -39,6 +44,7 @@
             @endforeach
             </tbody>
         </table>
+        {{ $Mahasiswa->links() }}
     </div>
 </div>
 @stop

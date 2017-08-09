@@ -12,7 +12,7 @@
         {!! Form::open(['url'=>'mahasiswa']) !!}
         <div class="form-group">
             {!! Form::label('nim', 'NIM') !!}
-            {!! Form::text('nim', null, ['class' => 'form-control', 'placeholder' => 'masukan nama']) !!}
+            {!! Form::text('nim', null, ['class' => 'form-control', 'placeholder' => 'masukan nim']) !!}
         </div>
         <div class="form-group">
             {!! Form::label('nama', 'Nama Lengkap') !!}
@@ -20,15 +20,15 @@
         </div>
         <div class="form-group">
             {!! Form::label('jurusan', 'Jurusan') !!}
-            {!! Form::text('jurusan', null, ['class' => 'form-control', 'placeholder' => 'masukan nama']) !!}
+            {!! Form::text('jurusan', null, ['class' => 'form-control', 'placeholder' => 'masukan jurusan']) !!}
         </div>
         <div class="form-group">
             {!! Form::label('telepon', 'Telepon') !!}
-            {!! Form::text('telepon', null, ['class' => 'form-control', 'placeholder' => 'masukan nama']) !!}
+            {!! Form::text('telepon', null, ['class' => 'form-control', 'placeholder' => 'masukan telepon']) !!}
         </div>
         <div class="form-group">
             {!! Form::label('alamat', 'Alamat') !!}
-            {!! Form::text('alamat', null, ['class' => 'form-control', 'placeholder' => 'masukan nama']) !!}
+            {!! Form::text('alamat', null, ['class' => 'form-control', 'placeholder' => 'masukan alamat']) !!}
         </div>
         {!! Form::submit('Tambah Mahasiswa', ['class' => 'btn btn-primary']) !!}
         {!! Form::close() !!}

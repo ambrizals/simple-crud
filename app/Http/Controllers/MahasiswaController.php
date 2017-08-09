@@ -9,6 +9,7 @@ use App\Mahasiswa;
 
 use Illuminate\Support\Facades\Request;
 
+
 class MahasiswaController extends Controller
 {
     public function __construct(){
@@ -16,6 +17,7 @@ class MahasiswaController extends Controller
     }
     public function index(){
         $Mahasiswa = Mahasiswa::latest('created_at')->where(['flag_delete' => 0])->get();
+        $Mahasiswa = Mahasiswa::paginate(10);
         return view ('mahasiswa.index', compact('Mahasiswa'));
     }
     public function create(){
@@ -44,7 +46,7 @@ class MahasiswaController extends Controller
     }
 	public function restore($nim) {
 		Mahasiswa::where('nim',$nim)->update(['flag_delete' => 0]);
-        return redirect('mahasiswa')->with('message', 'Data berhasil dihapus!');
+        return redirect('mahasiswa')->with('message', 'Data telah dikembalikan!');
 	}
 	public function terhapus(){
         $Mahasiswa = Mahasiswa::latest('created_at')->where(['flag_delete' => 1])->get();

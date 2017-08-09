@@ -17,7 +17,7 @@ Route::get('/', function () {
 Auth::routes();
 Route::resource('/pegawai', 'PegawaiController');
 Route::prefix('mahasiswa')->group(function () {
-	Route::get('terhapus', 'MahasiswaController@terhapus')->name('Daftar Arsip');
+	Route::get('archive', 'MahasiswaController@terhapus')->name('Daftar Arsip');
 	Route::delete('{nim}/restore', 'MahasiswaController@restore')->name('Restore Data');
 });
 Route::resource('mahasiswa', 'MahasiswaController');
